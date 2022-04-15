@@ -1,3 +1,7 @@
+===========================
+For FUGA-specific notes see "FUGA.md":FUGA.md
+===========================
+
 h1. Elasticsearch
 
 h2. A Distributed RESTful Search Engine
