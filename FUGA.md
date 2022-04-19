@@ -9,15 +9,26 @@ This project is to prolong life of Elasticsearch 1.x by allowing it to run on ne
 
 ## Versioning
 
-Follow the format: `<base-version>-javaXX.<build>-<SNAPSHOT(OPTIONAL)>`
+Follow the format: `<base-version>-<build>`, where `build` is incremented starting `001`
 
 ## Distributing
 
-Via FUGA internal Maven registry. For instance:
+Via FUGA internal Maven repository as follows:
 ```xml
 <dependency>
-    <groupId>org.elasticsearch</groupId>
-    <artifactId>elasticsearch</artifactId>
-    <version>1.7.5-java11.1-SNAPSHOT</version>
+    <groupId>com.iip</groupId>
+    <artifactId>elasticsearch-java11</artifactId>
+    <version>1.7.5-001</version>
 </dependency>
+```
+
+### Deploying to the FUGA internal repository
+
+Make sure that your `settings.xml` contains credentials for
+the registry `fuga-nexus`.
+
+```shell
+$ mvn package org.apache.maven.plugins:maven-deploy-plugin:2.8:deploy \ 
+  -DskipTests \
+  -DaltReleaseDeploymentRepository=fuga-nexus::default::https://nexus.tools.fuga.com/repository/maven-releases/
 ```
